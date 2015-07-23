@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>来答题吧！</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.css"/>
+	<style type="text/css">
+		/* CSS Document */
+		body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+		body{font-size:12px;}
+		img{border:none;}
+		li{list-style:none;}
+		input,select,textarea{outline:none;border:none; background:none;}
+		textarea{resize:none;}
+		a{text-decoration:none; color: #FFFFFF;}
+		a:link, a:visited{ color: #FFFFFF;}
+		a:hover{ color: #FFFFFF;}
+		a:active{ color: #FFFFFF;}
+		img{ width: 100%; height: 100%;}
+		.index{ position: relative;}
+		#circle{  position: absolute; left: 50%; top: 70%; transform: translate(-50%, 0); -webkit-transform:translate(-50%, 0); -moz-transform:translate(-50%, 0); -ms-transform:translate(-50%, 0); -o-transform:translate(-50%, 0); }
+		.box{ z-index: 100; position: absolute; left: 50%; top: 80%; transform: translate(-50%, 0); -webkit-transform:translate(-50%, 0); -moz-transform:translate(-50%, 0); -ms-transform:translate(-50%, 0); -o-transform:translate(-50%, 0);}
+		.box a{ font:28px "Microsoft YaHei", "微软雅黑"; color:#FFFFFF;}
+	</style>
+</head>
+<body>
+	<!-- 答题主页 -->
+	<div data-role="page" id="index"> 		
+		<img src="img/beijing.jpg" />	
+		<canvas id="circle" width="200" height="150"></canvas>
+		<div class="box">
+			<a href="#question" type="submit">开始</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var c=document.getElementById("circle");
+		var content=c.getContext("2d");
+		content.fillStyle="#37b9a1";
+		content.beginPath();
+		content.arc(100,75,70,0,Math.PI*2,true);
+		content.closePath();
+		content.fill();
+	</script>
+
+	<!-- 进入答题的页面 -->
+	<div data-role="page" id="question"> 
+		<div data-role="header" data-position="fixed">
+			<img src="img/head.jpg" />
+		</div>
+		<div data-role="content">
+			<form method="post" action="demoform.asp">
+			     <fieldset data-role="controlgroup">
+			       <legend>1、请选择您喜爱的颜色：</legend>
+			         <label for="red">红色</label>
+			         <input type="checkbox" name="red" id="red" value="red" >
+			         <label for="green">绿色</label>
+			         <input type="checkbox" name="green" id="green" value="green" >
+			         <label for="blue">蓝色</label>
+			         <input type="checkbox" name="blue" id="blue" value="blue" >	
+			         <label for="yellow">黄色</label>
+			         <input type="checkbox" name="yellow" id="yellow" value="yellow" >	
+			     </fieldset>
+			     <a href="#next" type="submit" data-role="button" data-inline="true">下一题</a>
+			     <a href="#result" type="submit" data-role="button" data-inline="true" data-rel="dialog">提交</a>
+			     <!-- <input type="submit" data-inline="true" value="提交"> -->
+		    </form>
+		</div>	
+	</div>
+
+	<!-- 点击下一题的页面 -->
+	<div data-role="page" id="next"> 
+		<div data-role="header" data-position="fixed">
+			<img src="img/head.jpg" />
+		</div>
+		<div data-role="content" class="container">
+			<form method="post" action="demoform.asp">
+			     <fieldset data-role="controlgroup">
+			       <legend>2、什么人一年中只工作一天：</legend>
+			         <label for="one">圣诞老人</label>
+			         <input type="checkbox" name="one" id="one" value="one" >
+			         <label for="two">总统</label>
+			         <input type="checkbox" name="two" id="two" value="two" >
+			         <label for="three">白雪公主</label>
+			         <input type="checkbox" name="three" id="three" value="three" >	
+			         <label for="four">没有这样的人</label>
+			         <input type="checkbox" name="four" id="four" value="four" >	
+			     </fieldset>
+			     <a href="#next" type="submit" data-role="button" data-inline="true">下一题</a>
+			     <a href="#result" type="submit" data-role="button" data-inline="true" data-rel="dialog">交卷</a>	 
+			     <!-- <input type="submit" data-inline="true" value="提交"> -->
+		    </form>
+		</div>	
+	</div>
+
+	<!-- 交卷后的响应内容 -->
+	<div data-role="page" id="result"> 
+		<div data-role="header" data-position="fixed">		
+			<h1>分数：90</h1>
+		</div>
+		<div data-role="content">
+			<img src="img/head.jpg" />
+			<p>这里放相应分数的说明！这里放相应分数的说明！这里放相应分数的说明！这里放相应分数的说明！这里放相应分数的说明！</p>
+		</div>	
+	</div>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/jquery.mobile-1.4.3.js"></script>
+</body>
+</html>
